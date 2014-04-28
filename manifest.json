@@ -1,0 +1,16 @@
+{
+   "authors": "wulftone, Aidan Jalali (Rainbowlemon)",
+   "chrome_url_overrides": {
+      "newtab": "clock.html"
+   },
+   "description": "Minimalist clock.  Replaces newtab screen.",
+   "icons": {
+      "128": "img/icon128.png",
+      "16": "img/icon16.png",
+      "48": "img/icon48.png"
+   },
+   "manifest_version": 2,
+   "name": "Minimalist Clock",
+   "offline_enabled": true,
+   "version": "1.2"
+}
