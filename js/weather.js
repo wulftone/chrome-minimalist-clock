@@ -1,19 +1,30 @@
 (function(){
   $(document).ready(function() {
-    var options = {
+    var currentWeatherTemplateSource = $("#current-weather-template").html(),
+        forecastTemplateSource       = $("#forecast-template").html(),
+        currentWeatherTemplate       = Handlebars.compile(currentWeatherTemplateSource),
+        forecastTemplate             = Handlebars.compile(forecastTemplateSource),
+
+        options = {
           location: 'Los Angeles, CA',
           woeid: '',
           unit: 'f',
 
           success: function(weather) {
-            $('#icon').addClass('icon-' + weather.code);
-            $('#temp').html(weather.temp + '&deg;' + weather.units.temp);
-            $('#city').html(weather.city);
-            $('#region').html(weather.region);
-            $('#currently').html(weather.currently);
-            $('#direction').html(weather.wind.direction);
-            $('#speed').html(weather.wind.speed);
-            $('#speed-units').html(weather.units.speed);
+            var html,
+                value,
+                forecasts = weather.forecasts,
+                $currentWeather  = $('#current-weather');
+                $forecast = $('#forecast');
+
+            for (var key in forecasts) {
+              value = forecasts[key];
+              html  = forecastTemplate(value);
+              $forecast.append(html);
+            }
+
+            html = currentWeatherTemplate(weather);
+            $currentWeather.html(html);
           },
 
           error: function(error) {
@@ -29,7 +40,7 @@
             },
             function(err) {
               console.error(err);
-               $("#weather").empty();
+              $("#weather").empty();
             }
           );
         },

@@ -28,6 +28,10 @@ html {
   text-align: center;
 }
 
+.weather-image {
+  width: 50px;
+}
+
 h4 {
   font-weight: normal;
   margin: 0;
@@ -117,3 +121,29 @@ i {
 #weather .currently {
   margin: 0 20px;
 }
+
+#weather {
+  margin-top: 10px;
+}
+
+.forecast-day {
+  display: inline-block;
+  position: relative;
+  margin: 0 1em;
+}
+
+.forecast-day > sup {
+  vertical-align: top;
+}
+
+.forecast-day > sub {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+#forecast {
+  margin-top: 30px;
+}
+
+

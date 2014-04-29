@@ -10,20 +10,35 @@
       <h1 id="time"></h1>
       <h2 id="date"></h2>
       <div id="weather">
-        <h4><i id='icon'></i><span id='temp'></span></h4>
-        <span id='city'></span>, <span id='region'></span>
-        <h4>
-          <span id='direction'></span>
-          <span id='speed'></span>
-          <span id='speed-units'></span>
-        </h4>
-        <div id='location'></div>
+        <div id="current-weather"></div>
+        <div id="forecast"></div>
       </div>
     </div>
 
     <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/handlebars.js"></script>
     <script type="text/javascript" src="./js/simpleWeather.js"></script>
     <script type="text/javascript" src="./js/clock.js"></script>
     <script type="text/javascript" src="./js/weather.js"></script>
+
+
+    <script id="current-weather-template" type="text/x-handlebars-template">
+        <h4><i class='icon-{{code}}'></i>{{temp}}</h4>
+        {{city}}, {{region}}
+        <h4>
+          {{weather.wind.direction}}
+          {{weather.wind.speed}}
+          {{weather.units.speed}}
+        </h4>
+    </script>
+    <script id="forecast-template" type="text/x-handlebars-template">
+      <div class='forecast-day'>
+        <!-- <img class='weather-image' src='http:{{image}}'/> -->
+        <span class='day'>{{day}}</span>
+        <i class='icon-{{code}}'></i>
+        <sup>{{high}}</sup>
+        <sub>{{low}}</sub>
+      </div>
+    </script>
   </body>
 </html>
