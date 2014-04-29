@@ -15,9 +15,11 @@
 
         setClock = function() {
             var d         = new Date(),
-                time      = makeItTwoDigits('<small>' + d.getHours()) + '</small>' + makeItTwoDigits(d.getMinutes()),
-                timeEl    = document.getElementById('time'),
-                titleTime = time.replace('<small>','').replace('</small>',':');
+                hour      = makeItTwoDigits(d.getHours()),
+                minute    = makeItTwoDigits(d.getMinutes()),
+                time      = '<small>' + hour + '</small>' + minute,
+                titleTime = hour + ':' + minute,
+                timeEl    = document.getElementById('time');
 
             timeEl.innerHTML = time;
             document.title   = titleTime;
